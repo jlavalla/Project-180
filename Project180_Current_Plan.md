@@ -174,6 +174,8 @@ Illustrative examples, not actual user data:
 - Preserve accomplishments through setbacks.
 - Never equate numbers with the person's value.
 
+**Decided:** Skipped and unrecorded days both count as planned days in denominators. Skips are shown separately (e.g., "9 of 12 planned days, 2 skipped"), with an optional skip reason (Rest, Sick, Traveling, Other) for context. The words "missed" and "failed" are not used.
+
 **Proposed:** *Your Evidence* as a section within Progress rather than necessarily its own navigation tab.
 
 ## 10. Motivation evolves with the person

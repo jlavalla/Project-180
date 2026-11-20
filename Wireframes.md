@@ -37,10 +37,10 @@ Each scheduled mission on a given day is an **occurrence**. These states drive T
 |-------|----------------|--------------------|--------------------------------------|
 | Scheduled | Default for a planned day | Empty circle | Yes, once the day ends |
 | Completed | User taps it | Filled circle, quiet "Done" | Yes, as kept |
-| Skipped | User chooses **Not today** | Soft gray "Skipped", no judgment | **Open** (see §9) |
+| Skipped | User chooses **Not today** | Soft gray "Skipped", no judgment | Yes, shown separately as "skipped" (§9) |
 | Moved to tomorrow | User chooses **Move to tomorrow** | Disappears today, appears tomorrow labeled "from yesterday" | Counts once, on the new day |
 | Paused | Mission paused in Missions | Not shown on Today | No |
-| Not recorded | Day ends with no action | Never called "missed" or "failed" in the UI | **Open** (see §9) |
+| Not recorded | Day ends with no action | Never called "missed" or "failed" in the UI | Yes (§9) |
 
 **Decided:** "Move to tomorrow" means the occurrence moves to the next day.
 
@@ -103,7 +103,7 @@ The user has just finished onboarding and chosen two missions. They have no hist
 **Design notes**
 
 - **No Momentum section.** Its space is replaced by one line of encouragement under the missions. (Agreed: no empty graphs on day one.)
-- Section title is **"Your first promises"** instead of "Today's Missions", for the first 7 days or until the first completion. **Proposed**
+- Section title is **"Your first promises"** instead of "Today's Missions", for the user's first 5 days. **Decided** (4–5 days discussed; 5 chosen, easy to adjust after testing)
 - Encouragement says *one* is enough. It lowers the bar on purpose.
 - Onboarding should suggest starting with **1–3 missions**. More than that on day one is allowed but gently questioned. **Proposed**
 
@@ -242,8 +242,14 @@ Established user. The app moves from Coach toward Companion/Mirror (plan §10). 
 
 - **Move to tomorrow** → the row slides away with the message *"Moved to tomorrow."* Tomorrow it appears with "from yesterday". Not offered when the mission is already scheduled tomorrow (§3).
 - **Not today** → the row stays, grayed: *"Skipped. That's okay."* Tap again to restore it.
+  Below it, an optional one-tap reason appears for a few seconds, then fades if ignored:
+
+  ```text
+  ◌  Walk for 20 minutes     Skipped. That's okay.
+     Why? (optional)  [Rest] [Sick] [Traveling] [Other]
+  ```
 - **Pause this mission…** → goes to the mission's settings. Handy during illness or travel.
-- No reason is required. An optional reason (Rest, Sick, Traveling, Other) is **Open**. It could help Evidence context but adds friction.
+- **Decided:** A skip reason is offered but never required. Reasons give Evidence context (e.g., "2 skipped: 1 sick, 1 traveling") and are never used to judge. Reasons are private user data, covered by export and deletion.
 
 ### 8.3 Mood check-in — 1 tap, optional
 
@@ -292,19 +298,18 @@ Estimates only. They need to be checked by testing with real users in the target
 | Returning after 10+ days away | *"Welcome back. Your history is still here. Start with one thing today."* No list of what was missed. Offer to pause or simplify missions. | Proposed |
 | Mission created mid-day | Appears today only if the user chooses "Start today". Otherwise it starts tomorrow. | Proposed |
 | Schedule changed | Past occurrences keep their original schedule. Changes apply from today forward. | Decided (plan §14) |
-| Do skipped days count in Evidence denominators? | e.g., "9 of 12 planned days, 2 skipped" vs. excluding skips | **Open** |
-| Do unrecorded days count as "planned" in Evidence? | Affects honesty vs. gentleness of numbers | **Open** |
+| Do skipped days count in Evidence denominators? | Yes. Shown honestly and separately: "9 of 12 planned days, 2 skipped" | **Decided** |
+| Do unrecorded days count as "planned" in Evidence? | Yes, they count as planned. Wording stays neutral ("9 of 12 planned days"), never "3 missed" | **Decided** |
 
 ---
 
 ## 10. Open questions from this draft
 
-1. Skip and unrecorded treatment in Evidence denominators (§9).
-2. Optional skip reasons: useful context, or too much friction?
-3. Momentum wording rules and thresholds for "Building steadily" etc. These depend on the Momentum design (plan §8).
-4. How many days count as "first days" before *Your first promises* becomes *Today's Missions*?
-5. Milestone days for Evidence callouts on Today.
-6. Time-of-day grouping: automatic from reminder times, or user-assigned?
+1. Momentum wording rules and thresholds for "Building steadily" etc. These depend on the Momentum design (plan §8).
+2. Milestone days for Evidence callouts on Today.
+3. Time-of-day grouping: automatic from reminder times, or user-assigned?
+
+Resolved November 20, 2026: skipped and unrecorded days both count in Evidence denominators, with skips shown separately; optional one-tap skip reasons; *Your first promises* shows for the first 5 days.
 
 ## 11. Next screens to draft
 
