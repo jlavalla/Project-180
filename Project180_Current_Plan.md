@@ -104,6 +104,8 @@ Today | Journey | Progress | Profile
 
 **First-day requirement:** The screen must work with zero history. It should offer hope, a manageable next action, and no empty graphs that imply failure.
 
+**Decided:** On day one, the Momentum section is hidden and replaced with encouragement until there is enough history to describe.
+
 **One Thumb Test (Proposed acceptance target):** A user should be able to check missions, record a quick item (such as weight or vitamins), and close the app in approximately 30 seconds. This is a target to validate with testing.
 
 ## 6. Personal Missions
@@ -111,6 +113,10 @@ Today | Journey | Progress | Profile
 **Decided:** Users choose their own meaningful commitments. Examples: walk Monday/Wednesday/Friday, take vitamins, stretch after dinner, read, practice golf, log water, or follow a prescribed medication schedule.
 
 **Proposed fields:** Title, optional description, category, schedule, reminder preference, active/paused state, and completion history. Users must be able to edit, pause, skip, and restart missions without being punished.
+
+**Decided:** Deferring a mission means **moving it to tomorrow**. See [Wireframes.md](Wireframes.md) §3 for proposed rules.
+
+**Proposed:** The day follows the phone's time zone automatically (no time zone setting), with an optional "My day ends at" setting (default 3:00 AM). See [Wireframes.md](Wireframes.md) §2.
 
 ### Routines (Proposed)
 
@@ -233,6 +239,8 @@ flowchart TD
 ```
 
 Navigation, onboarding questions, and which screens deserve top-level placement remain **Open**.
+
+**Decided:** Medication is left out of the first round of wireframes until its scope (§12) is resolved.
 
 ## 14. Conceptual data model
 
