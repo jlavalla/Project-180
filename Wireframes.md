@@ -2,7 +2,7 @@
 
 **Working draft** | November 20, 2026 | Low fidelity, one screen per section
 
-Scope of this draft: the **Today** screen across a user's journey (day 1, day 30, day 180) and the core mission actions (**complete, skip, move to tomorrow**). Other screens follow once Today is agreed.
+Scope of this draft: the **Today** screen across a user's journey (day 1, day 30, day 180), the core mission actions (**complete, skip, move to tomorrow**), and **Onboarding** (§11).
 
 Decision labels: **Decided** / **Proposed** / **Open**, as in [Project180_Current_Plan.md](Project180_Current_Plan.md).
 
@@ -311,8 +311,224 @@ Estimates only. They need to be checked by testing with real users in the target
 
 Resolved November 20, 2026: skipped and unrecorded days both count in Evidence denominators, with skips shown separately; optional one-tap skip reasons; *Your first promises* shows for the first 5 days.
 
-## 11. Next screens to draft
+## 11. Onboarding — zero history to first promises
 
-Onboarding (zero history → first 1–3 missions) · Personal Missions (create, edit, pause) · Progress / Your Evidence · Settings (encouragement level, notifications, "My day ends at", privacy).
+**Goal:** Get a brand-new user from opening the app to a Day 1 Today screen with 1–3 small missions, feeling hopeful rather than assessed.
+
+**Targets (Proposed, to validate in testing):** about 1–2 minutes in total, with a shortest path of about 5 taps. Every question except choosing one mission can be skipped.
+
+### 11.1 Flow
+
+```mermaid
+flowchart TD
+    W[O1 Welcome] --> I[O2 What brings you here? - optional]
+    I --> P[O3 Choose your first promises]
+    P --> S[O4 When will you do them?]
+    S --> R[O5 Reminders - optional]
+    R --> N[O6 What should we call you? - optional]
+    N --> D[O7 Ready]
+    D --> T[Today - Day 1]
+    I -. Skip .-> P
+    P -. Write my own .-> P
+    W -. Skip setup .-> T0[Today - no missions yet]
+```
+
+### 11.2 What onboarding does not ask
+
+**Proposed.** Each item is left out on purpose (Principles 6 and 12). Users can add any of them later, inside the relevant feature, when they choose to.
+
+- No weight, goal weight, BMI, or body photos.
+- No age, sex, health conditions, or medications.
+- No "how motivated are you?" or self-assessment scores.
+- No contacts, social sign-in prompts, or invitations to friends.
+- The number 180 is never presented as a target weight.
+
+### O1 — Welcome
+
+```text
+┌─────────────────────────────────────┐
+│                                     │
+│              Project 180            │
+│                                     │
+│   Small daily actions can change    │
+│   the direction of a life.          │
+│                                     │
+│   Start with one promise you can    │
+│   keep. We'll help with the rest.   │
+│                                     │
+│                                     │
+│         [      Begin      ]         │
+│                                     │
+│     I already use Project 180       │
+└─────────────────────────────────────┘
+```
+
+- No account wall before value. When and whether an account is needed depends on the platform and sync decisions (plan §17.7). **Open**
+- "I already use Project 180" leads to sign-in or restoring data. **Open**
+
+### O2 — What brings you here? (optional)
+
+```text
+┌─────────────────────────────────────┐
+│  ‹                            Skip  │
+│                                     │
+│  What would you like more of?       │
+│  Choose any. This only shapes       │
+│  suggestions.                       │
+│                                     │
+│  [ Energy        ]  [ Movement    ] │
+│  [ Better eating ]  [ Calm        ] │
+│  [ Strength      ]  [ Routine     ] │
+│  [ Healthier weight ]               │
+│  [ Just looking around ]            │
+│                                     │
+│         [    Continue    ]          │
+└─────────────────────────────────────┘
+```
+
+- The wording is "more of," not "what's wrong." It's about direction, not a diagnosis.
+- Choices are used only to order the suggestions in O3. They're stored as a preference the user can change or delete. **Proposed**
+- Skipping shows a balanced general list in O3.
+
+### O3 — Choose your first promises
+
+```text
+┌─────────────────────────────────────┐
+│  ‹                                  │
+│                                     │
+│  Pick one to three small promises.  │
+│  Small enough to keep on a hard day.│
+│                                     │
+│  SUGGESTED FOR YOU                  │
+│  ○  Walk for 10 minutes             │
+│  ○  Drink a glass of water at       │
+│     breakfast                       │
+│  ○  Take vitamins                   │
+│  ○  Stretch for 5 minutes           │
+│  ○  Protein with breakfast          │
+│  ○  In bed by 10:30                 │
+│                     Show more ›     │
+│                                     │
+│  +  Write my own                    │
+│                                     │
+│         [ Continue (2) ]            │
+└─────────────────────────────────────┘
+```
+
+- **Suggestions are deliberately small** ("10 minutes," not "an hour"). Users can edit the wording or amount of any suggestion before continuing.
+- **Picking a 4th or more** is allowed, and shows a calm note instead of a block: *"You can always add more later. Starting small makes the first week easier to keep."* **Proposed**
+- **Write my own** opens a single text field. Category is optional and can be guessed later.
+- Suggestion text follows the Brand voice and is reviewed like Reflections (plan §17.9). **Open**
+
+### O4 — When will you do them?
+
+One compact card per chosen mission, with sensible defaults already filled in so the user can just tap Continue.
+
+```text
+┌─────────────────────────────────────┐
+│  ‹                                  │
+│  When works for you?                │
+│  You can change this anytime.       │
+│                                     │
+│  Walk for 10 minutes                │
+│  Days   (Every day) Weekdays  Pick… │
+│  Time   Morning (Afternoon) Evening │
+│         Anytime                     │
+│  ─────────────────────────────────  │
+│  Take vitamins                      │
+│  Days   (Every day) Weekdays  Pick… │
+│  Time   (Morning) Afternoon Evening │
+│         Anytime                     │
+│                                     │
+│         [    Continue    ]          │
+└─────────────────────────────────────┘
+```
+
+- Time of day here feeds the Morning / Later grouping on Today (§6), which partly answers Open question 3 in §10.
+- Exact clock times are optional and live in mission settings, not onboarding.
+
+### O5 — Reminders (optional)
+
+```text
+┌─────────────────────────────────────┐
+│  ‹                                  │
+│  Would reminders help?              │
+│  Project 180 works fine without     │
+│  them.                              │
+│                                     │
+│  ( ) Not now                        │
+│  ( ) Gentle — one quiet nudge a day │
+│  ( ) At the times I do things       │
+│  ( ) Only if I haven't checked in   │
+│                                     │
+│         [    Continue    ]          │
+└─────────────────────────────────────┘
+```
+
+- **Not now** is the first option and the default. **Proposed**
+- The phone's notification-permission prompt appears **only** if the user picks a reminder option, and only after they press Continue.
+- Labels map to plan §11 (Never / Gentle / Scheduled / Only if I miss it). The plan's "Only if I miss it" is reworded to avoid "miss." Exact behavior is still **Open**.
+
+### O6 — What should we call you? (optional)
+
+```text
+┌─────────────────────────────────────┐
+│  ‹                            Skip  │
+│                                     │
+│  What should we call you?           │
+│  [ Sam                          ]   │
+│                                     │
+│  Just for greetings. A first name   │
+│  or nickname is perfect.            │
+│                                     │
+│  ─────────────────────────────────  │
+│  Your information belongs to you.   │
+│  You can export or delete it at any │
+│  time from Settings.                │
+│                                     │
+│         [    Continue    ]          │
+└─────────────────────────────────────┘
+```
+
+- If skipped, the greeting is just "Good morning."
+- The privacy line only promises what's already **Decided** (export and deletion). Claims about where data is stored wait for the architecture decisions.
+
+### O7 — Ready
+
+```text
+┌─────────────────────────────────────┐
+│                                     │
+│   You've made two promises.         │
+│                                     │
+│   Keeping even one of them today    │
+│   is a real start.                  │
+│                                     │
+│         [  Go to Today  ]           │
+│                                     │
+└─────────────────────────────────────┘
+```
+
+- **Late in the day** (proposed: after 6 PM local time), an extra choice appears: **Start today** / **Start tomorrow**. Starting tomorrow shows a Day 1 Today that says *"Your first promises begin tomorrow. Nothing to do tonight."*
+- No tutorial carousel. Today itself teaches tap to complete, with a one-time hint: *"Tap a promise when it's done. Swipe for other options."* **Proposed**
+
+### 11.3 Onboarding edge cases
+
+| Situation | Behavior | Status |
+|-----------|----------|--------|
+| User skips setup from Welcome | Today shows the Reflection and one card: *"Add your first promise"* with 3 suggestions. No empty lists. | Proposed |
+| User quits mid-onboarding | Choices so far are kept. Next open resumes at the same step, with **Skip setup** available. | Proposed |
+| User picks 6+ missions | Allowed after the calm note in O3. | Proposed |
+| User declines notification permission in the OS prompt | Setting falls back to **Not now**, with no repeated asking. Can be changed in Settings. | Proposed |
+
+### 11.4 Open questions from onboarding
+
+1. When an account is created, and whether the app works fully offline without one (plan §17.7).
+2. Whether O2 earns its place, or whether suggestions alone are enough. A good candidate for usability testing.
+3. Who writes and reviews the suggestion library, and how big it is at launch.
+4. The cutoff time for offering **Start tomorrow** (6 PM proposed).
+
+## 12. Next screens to draft
+
+Personal Missions (create, edit, pause) · Progress / Your Evidence · Settings (encouragement level, notifications, "My day ends at", privacy).
 
 Medication is deliberately left out of this round of wireframes until its scope is decided (plan §12).
