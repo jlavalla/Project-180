@@ -10,6 +10,7 @@ The project is in the planning phase. No application code yet. Per the plan, the
 |----------|--------|
 | [Project180_Current_Plan.md](Project180_Current_Plan.md) | Consolidated working draft (Nov 20, 2026) |
 | [Wireframes.md](Wireframes.md) | Draft: Today screen (day 1 / 30 / 180), core mission flows, onboarding |
+| [Mission_Suggestions.md](Mission_Suggestions.md) | Draft v0.1: suggested first promises (needs founder review) |
 | Vision.md, Product_Principles.md, Brand.md, Manifesto.md, Roadmap.md, Database.md | Planned. See §18 of the plan |
 
 Decision labels used throughout: **Decided**, **Proposed**, **Open**.

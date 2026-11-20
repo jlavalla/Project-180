@@ -363,7 +363,7 @@ flowchart TD
 └─────────────────────────────────────┘
 ```
 
-- No account wall before value. When and whether an account is needed depends on the platform and sync decisions (plan §17.7). **Open**
+- No account wall before value. **Proposed:** local-first with an optional account for backup and sync (see §11.4).
 - "I already use Project 180" leads to sign-in or restoring data. **Open**
 
 ### O2 — What brings you here? (optional)
@@ -418,7 +418,7 @@ flowchart TD
 - **Suggestions are deliberately small** ("10 minutes," not "an hour"). Users can edit the wording or amount of any suggestion before continuing.
 - **Picking a 4th or more** is allowed, and shows a calm note instead of a block: *"You can always add more later. Starting small makes the first week easier to keep."* **Proposed**
 - **Write my own** opens a single text field. Category is optional and can be guessed later.
-- Suggestion text follows the Brand voice and is reviewed like Reflections (plan §17.9). **Open**
+- Suggestions come from [Mission_Suggestions.md](Mission_Suggestions.md), which includes the writing rules and the review process.
 
 ### O4 — When will you do them?
 
@@ -508,7 +508,7 @@ One compact card per chosen mission, with sensible defaults already filled in so
 └─────────────────────────────────────┘
 ```
 
-- **Late in the day** (proposed: after 6 PM local time), an extra choice appears: **Start today** / **Start tomorrow**. Starting tomorrow shows a Day 1 Today that says *"Your first promises begin tomorrow. Nothing to do tonight."*
+- **Late in the day** (after 6 PM local time, **Decided**), an extra choice appears: **Start today** / **Start tomorrow**. Starting tomorrow shows a Day 1 Today that says *"Your first promises begin tomorrow. Nothing to do tonight."*
 - No tutorial carousel. Today itself teaches tap to complete, with a one-time hint: *"Tap a promise when it's done. Swipe for other options."* **Proposed**
 
 ### 11.3 Onboarding edge cases
@@ -522,10 +522,10 @@ One compact card per chosen mission, with sensible defaults already filled in so
 
 ### 11.4 Open questions from onboarding
 
-1. When an account is created, and whether the app works fully offline without one (plan §17.7).
-2. Whether O2 earns its place, or whether suggestions alone are enough. A good candidate for usability testing.
-3. Who writes and reviews the suggestion library, and how big it is at launch.
-4. The cutoff time for offering **Start tomorrow** (6 PM proposed).
+1. **Accounts — Proposed:** local-first. The app works fully offline with no account. An optional account for backup and sync is offered once, gently (around day 7), or whenever the user asks for backup or a second device. Declining never limits the app. To be confirmed in Phase 2 (Architecture).
+2. **O2 — Decided:** keep it for now and settle it in usability testing (with vs. without O2).
+3. **Suggestion library — Decided:** drafted by Claude in [Mission_Suggestions.md](Mission_Suggestions.md), reviewed by the founder, with a health-professional review before launch.
+4. **Start tomorrow cutoff — Decided:** 6 PM local time.
 
 ## 12. Next screens to draft
 

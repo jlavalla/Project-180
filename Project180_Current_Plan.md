@@ -305,7 +305,7 @@ Avoid optimizing primarily for time-in-app or notification opens. Success means 
 4. Explainable Momentum presentation and calculation.
 5. MVP health modules versus later releases.
 6. Encouragement personalization and notification behavior.
-7. Platform, tech stack, authentication, offline operation, and sync.
+7. Platform, tech stack, authentication, offline operation, and sync. *(Proposed: local-first, works offline, optional account only for backup and sync.)*
 8. Privacy, accessibility, export, deletion, and retention requirements.
 9. Reflection content creation and review process.
 10. Usability testing with representative adults in the target audience.
@@ -318,6 +318,7 @@ Avoid optimizing primarily for time-in-app or notification opens. Success means 
 - `Manifesto.md`: Philosophy and emotional promise, to develop thoughtfully.
 - `Wireframes.md`: Screen-by-screen designs.
 - `Roadmap.md`: MVP scope and milestones.
+- `Mission_Suggestions.md`: Suggested promises, writing rules, review process.
 - `Database.md`: Technical schema after UX requirements are resolved.
 - `Project180_Current_Plan.md`: This consolidated reference.
 
